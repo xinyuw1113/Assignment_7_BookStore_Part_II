@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Bookstore</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('home') }}">Music Bookstore</a></h1>
+        <p>Books for musicians, learners, and music lovers</p>
+    </header>
+
+    <nav class="search-bar">
+        <form action="{{ url_for('search') }}" method="POST">
+            <input type="text" name="search" placeholder="Search by title" required>
+            <button type="submit">Search Title</button>
+        </form>
+
+        <form action="{{ url_for('author_search') }}" method="POST">
+            <input type="text" name="author" placeholder="Search by author" required>
+            <button type="submit">Search Author</button>
+        </form>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
