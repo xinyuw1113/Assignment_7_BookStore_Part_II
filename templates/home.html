@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Browse Categories</h2>
+
+<div class="category-grid">
+    {% for category in categories %}
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/' + category['categoryImage']) }}" alt="{{ category['categoryName'] }}">
+            <h3>{{ category['categoryName'] }}</h3>
+            <a href="{{ url_for('category_page', category_id=category['categoryId']) }}">View Category</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
